@@ -28,26 +28,15 @@ You can't just take the difference between the highest price and the lowest pric
 
 What if the price goes down all day? In that case, the best profit will be negative.
 
-You can do this in O(n) time and O(1) space! More on big O: https://www.interviewcake.com/article/ruby/big-o-notation-time-and-space-complexity?
 =end
 
+# Strategies / Algorithms
+# - brute force
+# - O(n^2)
+# - O(n) time and O(1) space -- You can do this in O(n) time and O(1) space! More on big O: https://www.interviewcake.com/article/ruby/big-o-notation-time-and-space-complexity?
+# Can you halve the problem and solve half?
 def get_max_profit(stock_prices)
-  # start_index = 2
-  min_price = stock_prices[0]
-  stock_prices.reduce(stock_prices[1] - stock_prices[0]) do |max, current_price|
-    min_price = [min_price, current_price].min
 
-    potential_profit = current_price == min_price ? max : current_price - min_price
-
-    max_profit = [max, potential_profit].max
-
-    # look at each future price compared to this one
-    # (start_index).upto (stock_prices.length - 1) do |n|
-    #  max = (stock_prices[n] - price) > max ? stock_prices[n] - price : max
-    # end
-    # start_index += 1
-    max_profit
-  end
 end
 
 module Tests
@@ -58,8 +47,9 @@ module Tests
 
     if get_max_profit(stock_prices) == max_profit
       puts "#{__method__} #{@count} passed"
-    else 
+    else
       puts "#{__method__} #{@count} failed"
+      puts "expected #{get_max_profit(stock_prices)} to == #{max_profit}"
     end
 
     @count += 1
@@ -69,4 +59,3 @@ end
 
 Tests::get_max_profit_test([10,7,5,8,11,9], 6)
 Tests::get_max_profit_test([10,7,5,4,2,1], -3)
-
