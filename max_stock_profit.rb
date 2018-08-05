@@ -1,4 +1,5 @@
 #!/bin/ruby
+require('./test.rb')
 =begin
 Problem:
 How much can I make trading stocks? Taken from https://www.interviewcake.com/
@@ -39,23 +40,5 @@ def get_max_profit(stock_prices)
 
 end
 
-module Tests
-  @count = 1
-  # Test scenario
-  #
-  def self.get_max_profit_test(stock_prices, max_profit)
-
-    if get_max_profit(stock_prices) == max_profit
-      puts "#{__method__} #{@count} passed"
-    else
-      puts "#{__method__} #{@count} failed"
-      puts "expected #{get_max_profit(stock_prices)} to == #{max_profit}"
-    end
-
-    @count += 1
-  end
-
-end
-
-Tests::get_max_profit_test([10,7,5,8,11,9], 6)
-Tests::get_max_profit_test([10,7,5,4,2,1], -3)
+Tests::run(self.method(:get_max_profit),[10,7,5,8,11,9], 6)
+Tests::run(self.method(:get_max_profit),[10,7,5,4,2,1], -3)
