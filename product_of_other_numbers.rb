@@ -28,8 +28,8 @@ def get_products_of_all_ints_except_at_index(int_array)
   # should return
   # 2 * 3
   # 1 * 3
-  # 3 * 1
-  # => [6, 3, 3]
+  # 2 * 1
+  # => [6, 3, 2]
   #
   # Task 1:
   # Give me all ints in array except current index int
