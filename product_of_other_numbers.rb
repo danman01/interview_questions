@@ -33,18 +33,24 @@ def get_products_of_all_ints_except_at_index(int_array)
   #
   # Task 1:
   # Give me all ints in array except current index int
+  #
+  # Tast 2:
   # Multiply them together
+  #
+  # Task 3:
   # Return result
   #
+  # Approach 1:
   res = int_array.map do |int|
     int_array_copy = Array.new(int_array)
     int_array_copy.delete(int)
     int_array_copy.reduce(1, :*)
   end
   #
+  # Approach 2:
   # iterate over each int
+  #res = []
   #int_array.each_with_index do |int, index|
-  #  # res << int_array[index + 1] * int_array[index + 2]
   #  to_multiply = []
   #  0.upto(int_array.length - 1) do |inner_index|
   #    to_multiply << int_array[inner_index] unless inner_index == index
@@ -52,24 +58,6 @@ def get_products_of_all_ints_except_at_index(int_array)
   #  res << to_multiply.reduce(1, :*)
   #end
   #res.flatten!
-
-    # int_array.map do |int|
-    #  product = int * product unless int_array.index(int) == index
-    #  product
-  # iterate over each int. 
-  #int_array.each_with_index do |_int, index|
-  #  # For each int, calculate product of all other ints
-  #  prod = int_array.reduce(1) do |product, int|
-  #    current_index = int_array.index(int)
-  #    if index != current_index
-  #      product *=int_array[index]
-  #    end
-  #    product
-  #  end
-
-  ## Add product of all other ints into an array
-  #  res << prod
-  #end
 
   # Return array
   res
